@@ -8,6 +8,8 @@ channel_targets:
 - conda-forge main
 cran_mirror:
 - https://cran.r-project.org
+cxx_compiler:
+- clangxx
 fortran_compiler:
 - gfortran
 macos_machine:
