@@ -46,7 +46,8 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('cairoDevice')"           # [not win]
+    - xvfb-run -a bash -c "$R -e \"library('cairoDevice')\""  # [linux]
+    - $R -e "library('cairoDevice')"  # [osx]
     - "\"%R%\" -e \"library('cairoDevice')\""  # [win]
 
 about:
