@@ -16,16 +16,16 @@ build:
   # GTK2 not available on Windows
   skip: True  # [win]
   merge_build_host: True  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
-    - {{ compiler('fortran') }}        # [not win]
-    - {{native}}toolchain        # [win]
+    - {{ compiler('c') }}  # [not win]
+    - {{ compiler('cxx') }}  # [not win]
+    - {{ compiler('fortran') }}  # [not win]
     - {{posix}}filesystem        # [win]
     - {{posix}}sed               # [win]
     - {{posix}}grep              # [win]
@@ -46,7 +46,8 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('cairoDevice')"           # [not win]
+    - xvfb-run -a bash -c "$R -e \"library('cairoDevice')\""  # [linux]
+    - $R -e "library('cairoDevice')"  # [osx]
     - "\"%R%\" -e \"library('cairoDevice')\""  # [win]
 
 about:
