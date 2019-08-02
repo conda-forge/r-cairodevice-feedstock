@@ -1,4 +1,4 @@
-{% set version = "2.26" %}
+{% set version = "2.27" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,13 +10,13 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/cairoDevice_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/cairoDevice/cairoDevice_{{ version }}.tar.gz
-  sha256: 3ec6f1b789e11522553e9c07ba8f8eb779ee326b63942096da5df50e2a73323c
+  sha256: 8f0f7aeeee1cfed37642066870ab735c20bad024e53a9df7726d5e8655b31f42
 
 build:
   # GTK2 not available on Windows
   skip: True  # [win]
   merge_build_host: True  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -63,12 +63,6 @@ about:
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
 
 # Package: cairoDevice
 # Version: 2.25
