@@ -5,7 +5,7 @@ Home: https://CRAN.R-project.org/package=cairoDevice
 
 Package license: GPL
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: This device uses Cairo and GTK to draw to the screen, file (png, svg, pdf, and ps) or memory (arbitrary GdkDrawable or Cairo context). The screen device may be embedded into RGtk2 interfaces and supports all interactive features of other graphics devices, including getGraphicsEvent().
 
