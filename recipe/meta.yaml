@@ -1,4 +1,4 @@
-{% set version = "2.27" %}
+{% set version = "2.28.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,13 +10,13 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/cairoDevice_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/cairoDevice/cairoDevice_{{ version }}.tar.gz
-  sha256: 8f0f7aeeee1cfed37642066870ab735c20bad024e53a9df7726d5e8655b31f42
+  sha256: f2aa5e7fda51c7014dff8c7abe5cb0f76e4d754b81f5fcf0aa5668a42fa3a841
 
 build:
   # GTK2 not available on Windows
-  skip: True  # [win]
-  merge_build_host: True  # [win]
-  number: 2
+  skip: true  # [win]
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -53,12 +53,9 @@ test:
 about:
   home: https://CRAN.R-project.org/package=cairoDevice
   license: GPL
-  summary: This device uses Cairo and GTK to draw to the screen, file (png, svg, pdf, and ps)
-    or memory (arbitrary GdkDrawable or Cairo context). The screen device may be embedded
-    into RGtk2 interfaces and supports all interactive features of other graphics devices,
-    including getGraphicsEvent().
+  summary: This device uses Cairo and GTK to draw to the screen, file (png, svg, pdf, and ps) or memory (arbitrary GdkDrawable or Cairo context). The screen device may be embedded into RGtk2 interfaces and supports all interactive features of other graphics devices, including getGraphicsEvent().
   license_family: GPL
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
