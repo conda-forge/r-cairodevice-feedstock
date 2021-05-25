@@ -38,6 +38,7 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
+    - glib  # Needed for pkg-config to detect gtk2
     - gtk2
   run:
     - r-base
