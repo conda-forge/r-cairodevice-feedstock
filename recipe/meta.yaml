@@ -1,4 +1,4 @@
-{% set version = "2.28.2" %}
+{% set version = "2.28.2.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,13 +10,13 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/cairoDevice_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/cairoDevice/cairoDevice_{{ version }}.tar.gz
-  sha256: f2aa5e7fda51c7014dff8c7abe5cb0f76e4d754b81f5fcf0aa5668a42fa3a841
+  sha256: 159b3efb1d06519b4460f5d4de201212468975246a350729886d29e599690f10
 
 build:
   # GTK2 not available on Windows
   skip: true  # [win]
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
