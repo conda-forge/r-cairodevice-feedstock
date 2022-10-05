@@ -8,6 +8,7 @@ package:
 
 source:
   url:
+    - https://cran.r-project.org/src/contrib/Archive/cairoDevice/cairoDevice_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/cairoDevice_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/cairoDevice/cairoDevice_{{ version }}.tar.gz
   sha256: 9385971cbc5a70f921f17745142ba99ff1e94c09e0523aa67d7c9255bd45e7b6
