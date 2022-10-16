@@ -1,0 +1,31 @@
+From de0f7eacd00c1c70d3438ec4606bc9e441addccf Mon Sep 17 00:00:00 2001
+From: Tom Elliott <tomelliottnz@gmail.com>
+Date: Thu, 28 Apr 2022 21:52:10 +1200
+Subject: [PATCH] replace PROBLEM/ERROR with Rf_error()
+
+---
+ src/cairoDevice.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/cairoDevice.c b/src/cairoDevice.c
+index 2810413..213398a 100644
+--- a/src/cairoDevice.c
++++ b/src/cairoDevice.c
+@@ -1503,7 +1503,7 @@ initCairoDevice(double width, double height, double ps, void *data, CairoDeviceC
+       return NULL;
+     if (! init_fun (dev, width, height, ps, data)) {
+       free(dev);
+-      PROBLEM  "unable to start device cairo" ERROR;
++      Rf_error("unable to start device cairo");
+     }
+     cd = (CairoDesc *)dev->deviceSpecific;
+     /* wait to do this until the device is realized (if applicable) */
+@@ -1529,7 +1529,7 @@ do_Cairo(double *in_width, double *in_height, double *in_pointsize, char **surfa
+   width = *in_width;
+   height = *in_height;
+   if (width <= 0 || height <= 0) {
+-    PROBLEM "Cairo device: invalid width or height" ERROR;
++    Rf_error("Cairo device: invalid width or height");
+   }
+   ps = *in_pointsize;
+  
